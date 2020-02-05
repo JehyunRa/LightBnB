@@ -28,6 +28,15 @@ exports.getUserWithEmail = getUserWithEmail;
  * @return {Promise<{}>} A promise to the user.
  */
 const getUserWithId = function(id) {
+  let user;
+  for (const userId in users) {
+    user = users[userId];
+    if (user.id === id) {
+      break;
+    } else {
+      user = null;
+    }
+  }
   return Promise.resolve(users[id]);
 }
 exports.getUserWithId = getUserWithId;
